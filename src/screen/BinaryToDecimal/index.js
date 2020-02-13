@@ -14,12 +14,13 @@ export default BinaryToDecimal = () =>{
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Conversor</Text>
-            <TextInput value={decimal} placeholder={"Decimal"} placeholderTextColor={"#0abcde"}></TextInput>
+            <TextInput value={decimal} style={styles.number} placeholder={"Decimal"} onChangeText={value => setDecimal(value)} keyboardType={"numeric"} placeholderTextColor={"#0abcde"}></TextInput>
+            <TextInput style={styles.number} value={binary}></TextInput>
         </View>
     )
 }
 const styles = StyleSheet.create({container:{
-    backgroundColor: '#000',
+    backgroundColor: 'rgb(50, 50, 50)',
     flex: 1
 },
 title: {

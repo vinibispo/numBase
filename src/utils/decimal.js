@@ -4,3 +4,6 @@ export const getBinaryToDecimal = (binary) =>{
     }
     return parseInt(binary, 2)
 }
+export const getHexaToDecimal = (hexa) => {
+    return parseInt(hexa, 16)
+}

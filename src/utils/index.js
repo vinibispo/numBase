@@ -1,2 +1,3 @@
 export {getDecimalToBinary} from './binary'
-export {getBinaryToDecimal} from './decimal'
+export {getBinaryToDecimal, getHexaToDecimal} from './decimal'
+export {getDecimalToHexa} from './hexadecimal'
