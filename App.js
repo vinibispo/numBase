@@ -3,17 +3,29 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import {Text, View, TextInput, StyleSheet, TouchableOpacity, Button} from 'react-native'
-import {getNumberToBinary} from './utils'
+import {getDecimalToBinary, getBinaryToDecimal} from './utils'
 const App = () =>{
 const [number, setNumber] = useState('')
-const [bin, setBin] = useState('Binário')
+const [bin, setBin] = useState('')
+useEffect(()=>{
+  if(!(number === '' && bin !== '')){
+    setBin(getDecimalToBinary(number))
+  }
+}, [number])
+useEffect(()=>{
+  if(!(bin === '' && number !== '')){
+    setNumber(getBinaryToDecimal(bin))
+  }
+   }, [bin])
 const handleNumber = value => setNumber(value)
   return(
     <View style ={styles.container}>
-      <Text style={styles.title}>Conversor {number}</Text>
-      <TextInput placeholderTextColor={"#0abcde"} style={styles.number} placeholder={"Número"} keyboardType={"numeric"} value={number} onChangeText={handleNumber}></TextInput>
-  <Text style={styles.number}>{bin}</Text>
-  <Button style={styles.button} onPress={() => setBin(getNumberToBinary(number))} title={"Transformar em binário"}></Button>
+      <Text style={styles.title}>Conversor</Text>
+      <TextInput
+        placeholderTextColor={"#0abcde"}
+          style={styles.number} placeholder={"Número"} keyboardType={"numeric"} value={number} onChangeText={handleNumber}
+          ></TextInput>
+      <TextInput style={styles.number}value={bin} placeholder={"Binário"}></TextInput>
     </View>
   )
 }

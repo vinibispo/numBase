@@ -1,6 +1,5 @@
-export const getNumberToBinary = (number) =>{
-    console.log(number)
-    if(number == ''){
+export const getDecimalToBinary = (number) =>{
+    if(number === ''){
         number = 0
     }
     number = Number(number)

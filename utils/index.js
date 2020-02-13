@@ -1,1 +1,2 @@
-export {getNumberToBinary} from './binary'
+export {getDecimalToBinary} from './binary'
+export {getBinaryToDecimal} from './decimal'
