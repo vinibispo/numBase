@@ -2,17 +2,18 @@
 /* eslint-disable semi */
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
-import {Text, View, TextInput, StyleSheet} from 'react-native'
+import {Text, View, TextInput, StyleSheet, TouchableOpacity, Button} from 'react-native'
+import {getNumberToBinary} from './utils'
 const App = () =>{
-const [number, setNumber] = useState(0)
-  useEffect(()=>{
-    setNumber(number)
-  }, [number])
+const [number, setNumber] = useState('')
+const [bin, setBin] = useState('Binário')
+const handleNumber = value => setNumber(value)
   return(
     <View style ={styles.container}>
-      <Text style={styles.title}>Conversor</Text>
-      <TextInput placeholderTextColor={"#0abcde"} style={styles.number} placeholder={"Número"} keyboardType={"numeric"}></TextInput>
-      <TextInput placeholderTextColor={"#0abcde"} style={styles.number} placeholder={"Binário"} keyboardType={"numeric"}>{number}</TextInput>
+      <Text style={styles.title}>Conversor {number}</Text>
+      <TextInput placeholderTextColor={"#0abcde"} style={styles.number} placeholder={"Número"} keyboardType={"numeric"} value={number} onChangeText={handleNumber}></TextInput>
+  <Text style={styles.number}>{bin}</Text>
+  <Button style={styles.button} onPress={() => setBin(getNumberToBinary(number))} title={"Transformar em binário"}></Button>
     </View>
   )
 }
@@ -30,6 +31,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 30,
     color: "#0abcde",
+  },
+  button:{
+    backgroundColor: '#ccc',
+    color: '#000',
+    width: 100,
+    height: 50
   }
 })
 export default App

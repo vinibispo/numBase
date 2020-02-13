@@ -1,0 +1,1 @@
+export {getNumberToBinary} from './binary'
