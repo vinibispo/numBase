@@ -1,3 +1,7 @@
 export const getDecimalToHexa = (number) => {
-    return number.toString(16)
+    if(number === ''){
+        number = 0
+    }
+    number = Number(number)
+    return number.toString(16).toUpperCase()
 }

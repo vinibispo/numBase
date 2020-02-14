@@ -8,14 +8,14 @@ export default BinaryToDecimal = () =>{
     useEffect(()=>{
         setBinary(getDecimalToBinary(decimal))
     }, [decimal])
-    useEffect(() => {
-        setDecimal(getBinaryToDecimal(binary))
-    }, [binary])
+    // useEffect(() => {
+        // setDecimal(getBinaryToDecimal(binary))
+    // }, [binary]) 
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Conversor</Text>
             <TextInput value={decimal} style={styles.number} placeholder={"Decimal"} onChangeText={value => setDecimal(value)} keyboardType={"numeric"} placeholderTextColor={"#0abcde"}></TextInput>
-            <TextInput style={styles.number} value={binary}></TextInput>
+            <TextInput style={styles.number} value={binary} placeholder={"Binário"} placeholderTextColor={"#0abcde"} onChangeText={value => setBinary(value)}></TextInput>
         </View>
     )
 }

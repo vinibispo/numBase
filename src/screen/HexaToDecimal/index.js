@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {View, StyleSheet, Text, TextInput} from 'react-native'
+import { getDecimalToHexa, getHexaToDecimal } from '../../utils'
 export default HexaToDecimal = () =>{
     const [decimal, setDecimal] = useState(0)
     const [hexadecimal, setHexaDecimal] = useState('')
-    useEffect(()=>setHexaDecimal(),
-    [decimal])
+    useEffect(()=>{setHexaDecimal(getDecimalToHexa(decimal))},
+    [decimal]) 
     return(
         <View style={styles.container}>
         <Text style={styles.title}>Conversor</Text>
         <TextInput value={decimal} style={styles.number} placeholder={"Decimal"} onChangeText={value => setDecimal(value)} keyboardType={"numeric"} placeholderTextColor={"#0abcde"}></TextInput>
-        <TextInput style={styles.number} value={hexadecimal} placeholder={"Hexadecimal"} placeholderTextColor={"#0abcde"}></TextInput>
+        <TextInput style={styles.number} value={hexadecimal}></TextInput>
     </View>
     )
 }
