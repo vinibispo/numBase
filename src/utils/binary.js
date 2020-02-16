@@ -3,5 +3,9 @@ export const getDecimalToBinary = (number) =>{
         // number = 0
     // }
     number = Number(number)
-    return number.toString(2)
+    let binary = number.toString(2)
+    if (binary === "NaN"){
+        binary = "0"
+    }
+    return binary
 }
