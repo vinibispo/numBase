@@ -5,12 +5,13 @@ export default HexaToDecimal = () =>{
     const [decimal, setDecimal] = useState(0)
     const [hexadecimal, setHexaDecimal] = useState('')
     useEffect(()=>{setHexaDecimal(getDecimalToHexa(decimal))},
-    [decimal]) 
+    [decimal])
+    useEffect(()=>{setDecimal(getHexaToDecimal(hexadecimal))}, [hexadecimal]) 
     return(
         <View style={styles.container}>
         <Text style={styles.title}>Conversor</Text>
         <TextInput value={decimal} style={styles.number} placeholder={"Decimal"} onChangeText={value => setDecimal(value)} keyboardType={"numeric"} placeholderTextColor={"#0abcde"}></TextInput>
-        <TextInput style={styles.number} value={hexadecimal}></TextInput>
+        <TextInput style={styles.number} value={hexadecimal} onChangeText={value => setHexaDecimal(value)}></TextInput>
     </View>
     )
 }

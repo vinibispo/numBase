@@ -16,5 +16,5 @@ export const getHexaToDecimal = (hexa) => {
     if(decimal === "NaN"){
         decimal = '0'
     }
-    return decimal
+    return `${decimal}`
 }
